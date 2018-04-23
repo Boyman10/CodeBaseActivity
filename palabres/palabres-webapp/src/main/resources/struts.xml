@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<!-- default Action -->
+		<default-action-ref name="index" />
+
+		<!-- Action "index" -->
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		
+		<!-- Action "login" -->
+		<action name="login" class="org.palabres.webapp.action.ManageUserAction"
+			method="doLogin">
+			<result name="input">/jsp/login.jsp</result>
+			<result>/jsp/success.jsp</result>
+		</action>
+
+
+		<!-- Action "register" -->
+		<action name="register" class="org.palabres.webapp.action.ManageUserAction"
+			method="doRegister">
+			<result name="input">/jsp/register.jsp</result>
+			<result>/jsp/success.jsp</result>
+		</action>
+
+		<!-- Listing users action -->
+		<action name="user_list" class="org.palabres.webapp.action.ManageUserAction"
+			method="doList">
+			<result>/jsp/admin/listusers.jsp</result>
+		</action>
+
+
+
+
+	</package>
+</struts>
