@@ -11,25 +11,26 @@
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
-		
+
 		<!-- Action "login" -->
-		<action name="login" class="org.palabres.webapp.action.ManageUserAction"
-			method="doLogin">
+		<action name="login"
+			class="org.palabres.webapp.action.ManageUserAction" method="doLogin">
 			<result name="input">/jsp/login.jsp</result>
 			<result>/jsp/success.jsp</result>
 		</action>
 
 
 		<!-- Action "register" -->
-		<action name="register" class="org.palabres.webapp.action.ManageUserAction"
+		<action name="register"
+			class="org.palabres.webapp.action.ManageUserAction"
 			method="doRegister">
 			<result name="input">/jsp/register.jsp</result>
 			<result>/jsp/success.jsp</result>
 		</action>
 
 		<!-- Listing users action -->
-		<action name="user_list" class="org.palabres.webapp.action.ManageUserAction"
-			method="doList">
+		<action name="user_list"
+			class="org.palabres.webapp.action.ManageUserAction" method="doList">
 			<result>/jsp/admin/listusers.jsp</result>
 		</action>
 
