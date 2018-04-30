@@ -10,10 +10,13 @@ public class ManageUserAction extends ActionSupport implements SessionAware {
 
 	private static final long serialVersionUID = -7149621975724165813L;
 
+	// Handling session
+	private Map<String, Object> userSession ;
+
 	@Override
 	public void setSession(Map<String, Object> session) {
-		// TODO Auto-generated method stub
-		
+
+		userSession = session;
 	}
 
 }

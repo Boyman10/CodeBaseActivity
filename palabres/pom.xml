@@ -166,8 +166,6 @@
 				<scope>runtime</scope>
 			</dependency>
 
-
-
 			<dependency>
 				<groupId>org.apache.struts</groupId>
 				<artifactId>struts2-bom</artifactId>
@@ -175,6 +173,8 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+
 
 
 		</dependencies>
