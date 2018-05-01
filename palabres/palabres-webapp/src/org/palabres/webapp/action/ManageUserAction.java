@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.example.palabres.model.bean.utilisateur.Utilisateur;
 import org.example.palabres.model.exception.NotFoundException;
 import org.palabres.webapp.helper.WebAppHelper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,12 +19,13 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 	private static final long serialVersionUID = -7149621975724165813L;
 
 	// Constant to be used to identify session
-	private static final String USER = "USER";
+	private static final String USER = "user";
 
 	// Handling session
 	private Map<String, Object> userSession;
 
 	// The bean to be defined for the login form - using corresponding entity
+	@Autowired
 	private Utilisateur userBean;
 	private String password = "1234";
 
@@ -32,7 +34,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 	/**
 	 * @return the password
 	 */
-	private String getPassword() {
+    public String getPassword() {
 		return password;
 	}
 
@@ -40,7 +42,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 	 * @param password
 	 *            the password to set
 	 */
-	private void setPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -72,8 +74,11 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 	 */
 	public String doLogin() {
 
+		// Return input by default :
         String vResult = ActionSupport.INPUT;
-        if (!StringUtils.isAllEmpty(userBean.getPseudo(), password)) {
+        
+        // Check if we have password and userBean submitted :
+        if (userBean != null && !StringUtils.isAllEmpty(userBean.getPseudo(), password)) {
             try {
                 Utilisateur vUtilisateur
                         = WebAppHelper.getManagerFactory().getUtilisateurManager()
@@ -87,6 +92,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
                 this.addActionError("Identifiant ou mot de passe invalide !");
             }
         }
+        
         return vResult;
 	}
 

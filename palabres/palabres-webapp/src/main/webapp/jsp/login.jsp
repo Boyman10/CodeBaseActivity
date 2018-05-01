@@ -21,19 +21,20 @@
 </head>
 <body>
 
+<div class="container">
+	
+	<%@ include file="_include/header.jsp" %>
+	
+	<h2>Login form</h2>
+	
+	<s:form action="login">
+	    <s:textfield name="userBean.pseudo" label="Your login name" />
+	    <s:password  name="password" label="Your password" />
+	    <s:submit value="Submit" />
+	</s:form>
+	
+	<%@ include file="_include/footer.jsp" %>
 
-
-<%@ include file="_include/header.jsp" %>
-
-<h2>Login form</h2>
-
-<s:form action="login">
-    <s:textfield name="userBean.pseudo" label="Your login name" />
-    <s:password  name="password" label="Your password" />
-    <s:submit value="Submit" />
-</s:form>
-
-<%@ include file="_include/footer.jsp" %>
-
+</div>
 </body>
 </html>
