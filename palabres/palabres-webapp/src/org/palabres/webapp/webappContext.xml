@@ -7,7 +7,7 @@
 
     <!-- ==== WebappHelper ===== -->
     <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetClass" value="org.palabres.webapp.helper.WebappHelper"/>
+        <property name="targetClass" value="org.palabres.webapp.helper.WebAppHelper"/>
         <property name="targetMethod" value="setManagerFactory"/>
         <property name="arguments" ref="managerFactory"/>
     </bean>
