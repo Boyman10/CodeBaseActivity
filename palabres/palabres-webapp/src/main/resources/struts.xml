@@ -18,7 +18,9 @@
 			<result name="input">/jsp/login.jsp</result>
 			<result>/jsp/success.jsp</result>
 		</action>
-
+<action name="logout" class="org.palabres.webapp.action.ManageUserAction" method="doLogout">
+    <result type="redirectAction">index</result>
+</action>
 
 		<!-- Action "register" -->
 		<action name="register"
