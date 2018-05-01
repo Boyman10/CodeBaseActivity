@@ -24,6 +24,8 @@ public class Utilisateur {
      * Constructeur.
      */
     public Utilisateur() {
+    	
+    	
     }
 
 

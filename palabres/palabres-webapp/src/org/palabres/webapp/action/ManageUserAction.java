@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.example.palabres.model.bean.utilisateur.Utilisateur;
+import org.example.palabres.model.exception.FunctionalException;
 import org.example.palabres.model.exception.NotFoundException;
 import org.palabres.webapp.helper.WebAppHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,16 +81,33 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
         // Check if we have password and userBean submitted :
         if (userBean != null && !StringUtils.isAllEmpty(userBean.getPseudo(), password)) {
             try {
+            	
+            	System.out.println("Retrieving user with pseudo " + userBean.getPseudo());
+            	
                 Utilisateur vUtilisateur
                         = WebAppHelper.getManagerFactory().getUtilisateurManager()
                                       .getUtilisateur(userBean.getPseudo());
+
+                this.addActionError("You are already there !");
+                
+            } catch (NotFoundException pEx) {
+                //this.addActionError("Identifiant ou mot de passe invalide !");
+
+            	/* Perfect we are all good we should continue now :*/
+                
+                System.out.println("Adding use to session");
+                
+                try {
+					WebAppHelper.getManagerFactory().getUtilisateurManager().addUtilisateur(userBean);
+				} catch (FunctionalException e) {
+					e.printStackTrace();
+				}
                 
                 // Ajout de l'utilisateur en session
-                this.userSession.put(USER, vUtilisateur);
+                this.userSession.put(USER, userBean);
                 
-                vResult = ActionSupport.SUCCESS;
-            } catch (NotFoundException pEx) {
-                this.addActionError("Identifiant ou mot de passe invalide !");
+                vResult = ActionSupport.SUCCESS;            	
+            	
             }
         }
         
