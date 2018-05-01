@@ -2,15 +2,18 @@ package org.palabres.webapp.action;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.example.palabres.model.bean.utilisateur.Utilisateur;
 import org.example.palabres.model.exception.NotFoundException;
 import org.palabres.webapp.helper.WebAppHelper;
-import org.apache.commons.lang3.StringUtils;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ManageUserAction extends ActionSupport implements SessionAware {
+public class ManageUserAction extends ActionSupport implements ServletRequestAware, SessionAware {
 
 	private static final long serialVersionUID = -7149621975724165813L;
 
@@ -23,6 +26,8 @@ public class ManageUserAction extends ActionSupport implements SessionAware {
 	// The bean to be defined for the login form - using corresponding entity
 	private Utilisateur userBean;
 	private String password = "1234";
+
+    private HttpServletRequest servletRequest;
 
 	/**
 	 * @return the password
@@ -93,7 +98,14 @@ public class ManageUserAction extends ActionSupport implements SessionAware {
 	public String doLogout() {
 		
 	    this.userSession.remove(USER);
-
+        // Invalidation de la session
+        this.servletRequest.getSession().invalidate();
 		return ActionSupport.SUCCESS;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+        this.servletRequest = request;
+		
 	}
 }
