@@ -28,8 +28,8 @@
 <h2>Login form</h2>
 
 <s:form action="login">
-    <s:textfield name="userBean.username" label="Your login name" />
-    <s:password  name="userBean.password" label="Your password" />
+    <s:textfield name="userBean.pseudo" label="Your login name" />
+    <s:password  name="password" label="Your password" />
     <s:submit value="Submit" />
 </s:form>
 

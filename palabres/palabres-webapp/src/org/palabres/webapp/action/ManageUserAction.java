@@ -19,6 +19,23 @@ public class ManageUserAction extends ActionSupport implements SessionAware {
 	
 	// The bean to be defined for the login form - using corresponding entity
 	private Utilisateur	userBean;
+	private String password = "1234";
+	
+	/**
+	 * @return the password
+	 */
+	private String getPassword() {
+		return password;
+	}
+
+
+	/**
+	 * @param password the password to set
+	 */
+	private void setPassword(String password) {
+		this.password = password;
+	}
+
 
 	/**
 	 * @return the userBean
