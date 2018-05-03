@@ -44,8 +44,13 @@
 		
 		<h2>Pick up a channel</h2>
 		
+		<ul>
+		<s:iterator value="arrChannels" status="arrChannelsStatus">
 		
+			<li><s:property value="name" /></li>
 		
+		</s:iterator>
+		</ul>	
 		<%@ include file="_include/footer.jsp"%>
 
 	</div>
