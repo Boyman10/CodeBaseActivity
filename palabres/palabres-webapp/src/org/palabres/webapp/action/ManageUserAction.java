@@ -11,7 +11,7 @@ import org.example.palabres.model.bean.utilisateur.Utilisateur;
 import org.example.palabres.model.exception.FunctionalException;
 import org.example.palabres.model.exception.NotFoundException;
 import org.palabres.webapp.helper.WebAppHelper;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
