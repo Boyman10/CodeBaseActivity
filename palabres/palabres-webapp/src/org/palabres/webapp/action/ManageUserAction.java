@@ -78,8 +78,17 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 		// Return input by default :
         String vResult = ActionSupport.INPUT;
         
+        
+		// Redirect if user already logged in :
+		if (this.userSession.containsKey(USER) && null != this.userSession.get(USER)) {
+			
+			return ActionSupport.SUCCESS;     
+		} 
+		
+		
+        
         // Check if we have password and userBean submitted :
-        if (userBean != null && !StringUtils.isAllEmpty(userBean.getPseudo(), password)) {
+        if (userBean != null && userBean.getPseudo() != null && !StringUtils.isAllEmpty(userBean.getPseudo(), password)) {
             try {
             	
             	System.out.println("Retrieving user with pseudo " + userBean.getPseudo());
@@ -95,7 +104,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 
             	/* Perfect we are all good we should continue now :*/
                 
-                System.out.println("Adding use to session");
+                System.out.println("Adding user to session");
                 
                 try {
 					WebAppHelper.getManagerFactory().getUtilisateurManager().addUtilisateur(userBean);
@@ -132,4 +141,25 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
         this.servletRequest = request;
 		
 	}
+	
+	
+	/**
+	 * Register method 
+	 * TODO 
+	 * @return
+	 */
+	public String doRegister() {
+
+		// Return input by default :
+        String vResult = ActionSupport.INPUT;
+        
+        // Check if we have password and userBean submitted :
+        if (userBean != null && !StringUtils.isAllEmpty(userBean.getPseudo(), password)) {
+        	
+            System.out.println("Retrieving user with pseudo " + userBean.getPseudo());
+        }
+        
+        return vResult;
+	}
+	
 }
