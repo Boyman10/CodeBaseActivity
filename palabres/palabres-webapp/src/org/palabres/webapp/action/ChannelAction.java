@@ -21,14 +21,14 @@ public class ChannelAction extends ActionSupport {
 	/**
 	 * @return the arrChannels
 	 */
-	private List<Channel> getArrChannels() {
+	public List<Channel> getArrChannels() {
 		return arrChannels;
 	}
 
 	/**
 	 * @param arrChannels the arrChannels to set
 	 */
-	private void setArrChannels(List<Channel> arrChannels) {
+	public void setArrChannels(List<Channel> arrChannels) {
 		this.arrChannels = arrChannels;
 	}
 

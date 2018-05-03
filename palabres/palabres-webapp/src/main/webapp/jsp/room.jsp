@@ -45,9 +45,9 @@
 		<h2>Pick up a channel</h2>
 		
 		<ul>
-		<s:iterator value="arrChannels" status="arrChannelsStatus">
+		<s:iterator value="arrChannels" status="arrChannelsStatus" var="channel">
 		
-			<li><s:property value="name" /></li>
+			<li><s:property value="#channel.name" /></li>
 		
 		</s:iterator>
 		</ul>	
