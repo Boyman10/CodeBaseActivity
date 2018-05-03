@@ -26,7 +26,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 	private Map<String, Object> userSession;
 
 	// The bean to be defined for the login form - using corresponding entity
-	@Autowired
+	//@Autowired
 	private Utilisateur userBean;
 	private String password = "1234";
 

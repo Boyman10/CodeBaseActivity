@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <h1>HEADER</h1>
 <nav>
-<a href="/">Home</a>
+<s:a action="index">Home</s:a>
 </nav>
     <s:if test="#session.user">
             Utilisateur connecté :
