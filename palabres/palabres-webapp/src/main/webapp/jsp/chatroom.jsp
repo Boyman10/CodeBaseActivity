@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${application.name}- New Channel - list of channels</title>
+<title>Chat Room</title>
 <!-- Bootstrap -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -26,35 +26,13 @@
 
 		<%@ include file="_include/header.jsp"%>
 
-		<h2>Adding new Channel</h2>
+		<h2>Entered chat room</h2>
 
-		<s:form action="addroom">
-			<s:textfield name="channelBean.name" label="New Channel" />
-			<s:submit value="Submit" />
-		</s:form>
-		<s:if test="hasActionErrors()">
-			<div class="errors">
-				<s:actionerror />
-			</div>
-		</s:if>
-		<s:if test="hasActionMessages()">
-			<div class="welcome">
-				<s:actionmessage />
-			</div>
-		</s:if>
+		<p>Iterating among messages...</p>
 		
-		<h2>Pick up a channel</h2>
 		
-		<ul>
-		<s:iterator value="arrChannels" status="arrChannelsStatus" var="channel">
-		
-		    <s:url action="chatroom" var="room">
-		        <s:param name="id"><s:property value="#channel.name" /></s:param>
-		    </s:url>
-		
-		    <li><a href="<s:property value='#room'/>"><s:property/></a></li>
-		</s:iterator>
-		</ul>	
+
+
 		<%@ include file="_include/footer.jsp"%>
 
 	</div>

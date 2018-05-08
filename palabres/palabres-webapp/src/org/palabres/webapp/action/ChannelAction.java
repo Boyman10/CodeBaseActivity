@@ -40,7 +40,8 @@ public class ChannelAction extends ActionSupport {
 	public String chat() {
 		
 		LOGGER.debug("Entering chat room selection...");
-		System.out.println("entering chat...");
+		
+		System.out.println("entering chat room selection...");
 		
 		arrChannels
                     = WebAppHelper.getManagerFactory().getChatManager()
@@ -58,6 +59,17 @@ public class ChannelAction extends ActionSupport {
 		
 		return ActionSupport.SUCCESS;
 		
+	}
+	
+	/**
+	 * Chat room with submitted id corresponding to a channel
+	 * @return String action
+	 */
+	public String chatRoom() {
+		
+		LOGGER.debug("Entering chat room ...");
+		
+		return ActionSupport.SUCCESS;
 	}
 	
 }

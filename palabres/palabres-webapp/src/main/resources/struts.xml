@@ -57,6 +57,17 @@
     
 			<result>/jsp/room.jsp</result>
 		</action>
-
+		<!-- Action "chat selection" -->
+		<action name="chatroom"
+			class="org.palabres.webapp.action.ChannelAction" method="chatRoom">
+			    <interceptor-ref name="timer" />
+			    <interceptor-ref name="logger" />
+			    <interceptor-ref name="defaultStack">
+			        <param name="exception.logEnabled">true</param>
+			        <param name="exception.logLevel">ERROR</param>
+			    </interceptor-ref>
+    
+			<result>/jsp/chatroom.jsp</result>
+		</action>
 	</package>
 </struts>
