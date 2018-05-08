@@ -3,6 +3,8 @@
 <footer class="footer">
     <div class="container">
         <p>
+            <hr />
+			<s:text name="contact" />
             ${application.name} - version ${project.version}
             &copy; <a href="${organization.url}">${organization.name}</a>
         </p>
