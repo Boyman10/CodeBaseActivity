@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.example.palabres.business.contract.ManagerFactory;
 import org.example.palabres.model.bean.utilisateur.Utilisateur;
 import org.example.palabres.model.exception.FunctionalException;
 import org.example.palabres.model.exception.NotFoundException;
 import org.palabres.webapp.helper.WebAppHelper;
 //import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -31,6 +33,9 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
 	private String password = "1234";
 
     private HttpServletRequest servletRequest;
+    
+    @Autowired
+    private ManagerFactory managerFactory;
 
 	/**
 	 * @return the password
@@ -94,7 +99,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
             	System.out.println("Retrieving user with pseudo " + userBean.getPseudo());
             	
                 Utilisateur vUtilisateur
-                        = WebAppHelper.getManagerFactory().getUtilisateurManager()
+                        = managerFactory.getUtilisateurManager()
                                       .getUtilisateur(userBean.getPseudo());
 
                 this.addActionError("You are already there !");
@@ -107,7 +112,7 @@ public class ManageUserAction extends ActionSupport implements ServletRequestAwa
                 System.out.println("Adding user to session");
                 
                 try {
-					WebAppHelper.getManagerFactory().getUtilisateurManager().addUtilisateur(userBean);
+                	managerFactory.getUtilisateurManager().addUtilisateur(userBean);
 				} catch (FunctionalException e) {
 					e.printStackTrace();
 				}

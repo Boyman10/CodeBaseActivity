@@ -14,7 +14,7 @@
 
 		<!-- Action "login" -->
 		<action name="login"
-			class="org.palabres.webapp.action.ManageUserAction" method="doLogin">
+			class="ManageUserAction" method="doLogin">
 			<interceptor-ref name="timer" />
 			<interceptor-ref name="logger" />
 			<interceptor-ref name="defaultStack">
@@ -27,13 +27,13 @@
 		</action>
 
 		<action name="logout"
-			class="org.palabres.webapp.action.ManageUserAction" method="doLogout">
+			class="ManageUserAction" method="doLogout">
 			<result type="redirectAction">index</result>
 		</action>
 
 		<!-- Action "register" -->
 		<action name="register"
-			class="org.palabres.webapp.action.ManageUserAction"
+			class="ManageUserAction"
 			method="doRegister">
 			<result name="input">/jsp/register.jsp</result>
 			<result>/jsp/success.jsp</result>
@@ -41,7 +41,7 @@
 
 		<!-- Listing users action -->
 		<action name="user_list"
-			class="org.palabres.webapp.action.ManageUserAction" method="doList">
+			class="ManageUserAction" method="doList">
 			<result>/jsp/admin/listusers.jsp</result>
 		</action>
 
