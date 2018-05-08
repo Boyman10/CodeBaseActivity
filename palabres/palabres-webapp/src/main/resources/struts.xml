@@ -3,18 +3,38 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-	<package name="default" extends="struts-default">
+
+	<package name="global" abstract="true" extends="struts-default">
+
+		<global-results>
+			<result name="error-forbidden" type="httpheader">
+				<param name="error">403</param>
+			</result>
+		</global-results>
+
+		<interceptors>
+			<interceptor name="auth"
+				class="org.palabres.webapp.interceptors.AuthInterceptor" />
+			<interceptor-stack name="authenticatedStack">
+				<interceptor-ref name="auth" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+	</package>
+
+
+	<package name="public" extends="global">
+
 		<!-- default Action -->
 		<default-action-ref name="index" />
-
 		<!-- Action "index" -->
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
 
 		<!-- Action "login" -->
-		<action name="login"
-			class="ManageUserAction" method="doLogin">
+		<action name="login" class="ManageUserAction" method="doLogin">
 			<interceptor-ref name="timer" />
 			<interceptor-ref name="logger" />
 			<interceptor-ref name="defaultStack">
@@ -26,29 +46,38 @@
 			<result type="redirectAction">index</result>
 		</action>
 
-		<action name="logout"
-			class="ManageUserAction" method="doLogout">
+		<action name="logout" class="ManageUserAction"
+			method="doLogout">
 			<result type="redirectAction">index</result>
 		</action>
 
 		<!-- Action "register" -->
-		<action name="register"
-			class="ManageUserAction"
+		<action name="register" class="ManageUserAction"
 			method="doRegister">
 			<result name="input">/jsp/register.jsp</result>
 			<result>/jsp/success.jsp</result>
 		</action>
 
+
+	</package>
+
+	<!-- Private package - allowing access to connected users only -->
+	<package name="private" extends="global">
+
+
+		<default-interceptor-ref
+			name="authenticatedStack" />
+
+
 		<!-- Listing users action -->
-		<action name="user_list"
-			class="ManageUserAction" method="doList">
+		<action name="user_list" class="ManageUserAction"
+			method="doList">
 			<result>/jsp/admin/listusers.jsp</result>
 		</action>
 
 
 		<!-- Action "chat room" -->
-		<action name="chat"
-			class="ChannelAction" method="chat">
+		<action name="chat" class="ChannelAction" method="chat">
 			<interceptor-ref name="timer" />
 			<interceptor-ref name="logger" />
 			<interceptor-ref name="defaultStack">
@@ -59,8 +88,7 @@
 			<result>/jsp/room.jsp</result>
 		</action>
 		<!-- Action "chat selection" -->
-		<action name="chatroom"
-			class="ChannelAction" method="chatRoom">
+		<action name="chatroom" class="ChannelAction" method="chatRoom">
 			<interceptor-ref name="timer" />
 			<interceptor-ref name="logger" />
 			<interceptor-ref name="defaultStack">
@@ -70,5 +98,6 @@
 
 			<result>/jsp/chatroom.jsp</result>
 		</action>
+
 	</package>
 </struts>
