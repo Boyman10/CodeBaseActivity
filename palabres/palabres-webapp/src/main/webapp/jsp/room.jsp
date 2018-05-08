@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${application.name}- New Channel - list of channels</title>
+<title>${application.name}-New Channel - list of channels</title>
 <!-- Bootstrap -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous" />
-	
+
 <s:head />
 </head>
 <body>
@@ -42,19 +42,22 @@
 				<s:actionmessage />
 			</div>
 		</s:if>
-		
+
 		<h2>Pick up a channel</h2>
-		
+
 		<ul>
-		<s:iterator value="arrChannels" status="arrChannelsStatus" var="channel">
-		
-		    <s:url action="chatroom" var="room">
-		        <s:param name="id"><s:property value="#channel.name" /></s:param>
-		    </s:url>
-		
-		    <li><a href="<s:property value='#room'/>"><s:property/></a></li>
-		</s:iterator>
-		</ul>	
+			<s:iterator value="arrChannels" status="arrChannelsStatus"
+				var="channel">
+
+				<s:url action="chatroom" var="room">
+					<s:param name="id">
+						<s:property value="#channel.name" />
+					</s:param>
+				</s:url>
+
+				<li><a href="<s:property value='#room'/>"><s:property /></a></li>
+			</s:iterator>
+		</ul>
 		<%@ include file="_include/footer.jsp"%>
 
 	</div>

@@ -15,19 +15,20 @@
 		<!-- Action "login" -->
 		<action name="login"
 			class="org.palabres.webapp.action.ManageUserAction" method="doLogin">
-			    <interceptor-ref name="timer" />
-			    <interceptor-ref name="logger" />
-			    <interceptor-ref name="defaultStack">
-			        <param name="exception.logEnabled">true</param>
-			        <param name="exception.logLevel">ERROR</param>
-			    </interceptor-ref>
-    
+			<interceptor-ref name="timer" />
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="defaultStack">
+				<param name="exception.logEnabled">true</param>
+				<param name="exception.logLevel">ERROR</param>
+			</interceptor-ref>
+
 			<result name="input">/jsp/login.jsp</result>
 			<result type="redirectAction">index</result>
 		</action>
-		
-		<action name="logout" class="org.palabres.webapp.action.ManageUserAction" method="doLogout">
-		    <result type="redirectAction">index</result>
+
+		<action name="logout"
+			class="org.palabres.webapp.action.ManageUserAction" method="doLogout">
+			<result type="redirectAction">index</result>
 		</action>
 
 		<!-- Action "register" -->
@@ -48,25 +49,25 @@
 		<!-- Action "chat room" -->
 		<action name="chat"
 			class="org.palabres.webapp.action.ChannelAction" method="chat">
-			    <interceptor-ref name="timer" />
-			    <interceptor-ref name="logger" />
-			    <interceptor-ref name="defaultStack">
-			        <param name="exception.logEnabled">true</param>
-			        <param name="exception.logLevel">ERROR</param>
-			    </interceptor-ref>
-    
+			<interceptor-ref name="timer" />
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="defaultStack">
+				<param name="exception.logEnabled">true</param>
+				<param name="exception.logLevel">ERROR</param>
+			</interceptor-ref>
+
 			<result>/jsp/room.jsp</result>
 		</action>
 		<!-- Action "chat selection" -->
 		<action name="chatroom"
 			class="org.palabres.webapp.action.ChannelAction" method="chatRoom">
-			    <interceptor-ref name="timer" />
-			    <interceptor-ref name="logger" />
-			    <interceptor-ref name="defaultStack">
-			        <param name="exception.logEnabled">true</param>
-			        <param name="exception.logLevel">ERROR</param>
-			    </interceptor-ref>
-    
+			<interceptor-ref name="timer" />
+			<interceptor-ref name="logger" />
+			<interceptor-ref name="defaultStack">
+				<param name="exception.logEnabled">true</param>
+				<param name="exception.logLevel">ERROR</param>
+			</interceptor-ref>
+
 			<result>/jsp/chatroom.jsp</result>
 		</action>
 	</package>

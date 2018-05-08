@@ -18,15 +18,37 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 .wwFormTable {
-	background-color : black;
+	background-color: black;
+}
+
+.label {
+	font-style: italic;
+}
+
+.errorLabel {
+	font-style: italic;
+	color: red;
+}
+
+.errorMessage {
+	font-weight: bold;
+	color: red;
+}
+
+.checkboxLabel {
 	
 }
-.label {font-style:italic; }
-.errorLabel {font-style:italic; color:red; }
-.errorMessage {font-weight:bold; color:red; }
-.checkboxLabel {}
-.checkboxErrorLabel {color:red; }
-.required {color:red;}
-.tdLabel {text-align:right; vertical-align:top; } 
+
+.checkboxErrorLabel {
+	color: red;
+}
+
+.required {
+	color: red;
+}
+
+.tdLabel {
+	text-align: right;
+	vertical-align: top;
+}

@@ -14,8 +14,11 @@
 	${1+3}
 
 	<s:if test="#session.user">
-		<s:a action="chat">Access chat room</s:a> dear <s:property value="#session.user.pseudo" />
-		<p><s:a action="logout">login out</s:a></p>
+		<s:a action="chat">Access chat room</s:a> dear <s:property
+			value="#session.user.pseudo" />
+		<p>
+			<s:a action="logout">login out</s:a>
+		</p>
 	</s:if>
 
 	<s:else>
