@@ -9,4 +9,8 @@
 	<bean id="ManageUserAction"
           class="org.palabres.webapp.action.ManageUserAction"
           singleton="false" />
+          
+     <bean id="ChannelAction"
+          class="org.palabres.webapp.action.ChannelAction"
+          singleton="false" />
 </beans>

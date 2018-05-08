@@ -5,6 +5,7 @@ import org.example.palabres.business.contract.ManagerFactory;
 /**
  * Classe de helper temporaire pour la webapp...
  */
+@Deprecated
 public abstract class WebAppHelper {
 
     private static ManagerFactory managerFactory;

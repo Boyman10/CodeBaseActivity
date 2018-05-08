@@ -48,7 +48,7 @@
 
 		<!-- Action "chat room" -->
 		<action name="chat"
-			class="org.palabres.webapp.action.ChannelAction" method="chat">
+			class="ChannelAction" method="chat">
 			<interceptor-ref name="timer" />
 			<interceptor-ref name="logger" />
 			<interceptor-ref name="defaultStack">
@@ -60,7 +60,7 @@
 		</action>
 		<!-- Action "chat selection" -->
 		<action name="chatroom"
-			class="org.palabres.webapp.action.ChannelAction" method="chatRoom">
+			class="ChannelAction" method="chatRoom">
 			<interceptor-ref name="timer" />
 			<interceptor-ref name="logger" />
 			<interceptor-ref name="defaultStack">

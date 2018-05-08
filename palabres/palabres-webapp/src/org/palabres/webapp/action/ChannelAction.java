@@ -5,8 +5,10 @@ import java.util.ArrayList;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.example.palabres.business.contract.ManagerFactory;
 import org.example.palabres.model.bean.chat.Channel;
 import org.palabres.webapp.helper.WebAppHelper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,6 +20,9 @@ public class ChannelAction extends ActionSupport {
 
 	private List<Channel> arrChannels;
 	
+    @Autowired
+    private ManagerFactory managerFactory;
+    
 	/**
 	 * @return the arrChannels
 	 */
@@ -44,7 +49,7 @@ public class ChannelAction extends ActionSupport {
 		System.out.println("entering chat room selection...");
 		
 		arrChannels
-                    = WebAppHelper.getManagerFactory().getChatManager()
+                    = managerFactory.getChatManager()
                                   .getListChannel();
 
 		
