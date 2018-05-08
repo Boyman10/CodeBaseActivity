@@ -7,10 +7,8 @@
 
 	<!-- ==== WebappHelper replacement ===== -->
 	<bean id="ManageUserAction"
-          class="org.palabres.webapp.action.ManageUserAction"
-          singleton="false" />
+          class="org.palabres.webapp.action.ManageUserAction" />
           
      <bean id="ChannelAction"
-          class="org.palabres.webapp.action.ChannelAction"
-          singleton="false" />
+          class="org.palabres.webapp.action.ChannelAction" />
 </beans>

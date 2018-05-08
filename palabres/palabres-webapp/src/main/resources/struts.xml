@@ -11,7 +11,6 @@
 				<param name="error">403</param>
 			</result>
 		</global-results>
-
 		<interceptors>
 			<interceptor name="auth"
 				class="org.palabres.webapp.interceptors.AuthInterceptor" />
@@ -63,6 +62,8 @@
 
 	<!-- Private package - allowing access to connected users only -->
 	<package name="private" extends="global">
+
+
 
 
 		<default-interceptor-ref
