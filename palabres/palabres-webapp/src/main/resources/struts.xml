@@ -5,12 +5,6 @@
 <struts>
 
 	<package name="global" abstract="true" extends="struts-default">
-
-		<global-results>
-			<result name="error-forbidden" type="httpheader">
-				<param name="error">403</param>
-			</result>
-		</global-results>
 		<interceptors>
 			<interceptor name="auth"
 				class="org.palabres.webapp.interceptors.AuthInterceptor" />
@@ -19,6 +13,13 @@
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
+		
+		<global-results>
+			<result name="error-forbidden" type="httpheader">
+				<param name="error">403</param>
+			</result>
+		</global-results>
+
 
 	</package>
 
