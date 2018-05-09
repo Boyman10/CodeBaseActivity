@@ -10,8 +10,13 @@
 				class="org.palabres.webapp.interceptors.AuthInterceptor" />
 			<interceptor-stack name="authenticatedStack">
 				<interceptor-ref name="auth" />
-				<interceptor-ref name="defaultStack" />
-			</interceptor-stack>
+				<interceptor-ref name="timer" />
+				<interceptor-ref name="logger" />
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+				</interceptor-stack>
 		</interceptors>
 		
 		<global-results>
@@ -35,12 +40,7 @@
 
 		<!-- Action "login" -->
 		<action name="login" class="ManageUserAction" method="doLogin">
-			<interceptor-ref name="timer" />
-			<interceptor-ref name="logger" />
-			<interceptor-ref name="defaultStack">
-				<param name="exception.logEnabled">true</param>
-				<param name="exception.logLevel">ERROR</param>
-			</interceptor-ref>
+
 
 			<result name="input">/jsp/login.jsp</result>
 			<result type="redirectAction">index</result>
@@ -80,23 +80,11 @@
 
 		<!-- Action "chat room" -->
 		<action name="chat" class="ChannelAction" method="chat">
-			<interceptor-ref name="timer" />
-			<interceptor-ref name="logger" />
-			<interceptor-ref name="defaultStack">
-				<param name="exception.logEnabled">true</param>
-				<param name="exception.logLevel">ERROR</param>
-			</interceptor-ref>
-
 			<result>/jsp/room.jsp</result>
 		</action>
+		
 		<!-- Action "chat selection" -->
 		<action name="chatroom" class="ChannelAction" method="chatRoom">
-			<interceptor-ref name="timer" />
-			<interceptor-ref name="logger" />
-			<interceptor-ref name="defaultStack">
-				<param name="exception.logEnabled">true</param>
-				<param name="exception.logLevel">ERROR</param>
-			</interceptor-ref>
 
 			<result>/jsp/chatroom.jsp</result>
 		</action>
